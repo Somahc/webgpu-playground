@@ -4,7 +4,7 @@ import "./root.css";
 export default function Root() {
     return (
         <>
-            <h1>Somahc's WebGPU Playground</h1>
+            <h1>WebGPU Playground</h1>
             <nav>
                 <ul className="nav-list">
                     <li>
