@@ -13,6 +13,11 @@ export default function Root() {
                     <li>
                         <Link to="/triangle">Triangle</Link>
                     </li>
+                    <li>
+                        <Link to="/first_vertex_buffer">
+                            First Vertex Buffer
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <Outlet />
