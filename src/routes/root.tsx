@@ -18,6 +18,9 @@ export default function Root() {
                             First Vertex and Index Buffer
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/uniform_buffer">Uniform Buffer</Link>
+                    </li>
                 </ul>
             </nav>
             <Outlet />

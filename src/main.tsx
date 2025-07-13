@@ -6,6 +6,7 @@ import Root from "./routes/root";
 import Index from "./routes";
 import Triange from "./routes/triangle/triangle";
 import FirstVertexAndIndexBuffer from "./routes/first_vertex_and_index_buffer/FirstVertexBuffer";
+import UniformBuffer from "./routes/uniform_bufffer/UniformBuffer";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
                 path: "/first_vertex_and_index_buffer",
                 element: <FirstVertexAndIndexBuffer />,
             },
+            { path: "/uniform_buffer", element: <UniformBuffer /> },
         ],
     },
 ]);

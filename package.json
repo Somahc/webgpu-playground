@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/gl-matrix": "^2.4.5",
+    "gl-matrix": "^3.4.3",
     "kiso.css": "^1.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
