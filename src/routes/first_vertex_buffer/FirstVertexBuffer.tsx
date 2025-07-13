@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { vertWGSL, fragWGSL } from "./shader";
 import {
     quadColorOffset,
+    quadIndexArray,
     quadPositionOffset,
     quadVertexArray,
-    quadVertexCount,
     quadVertexSize,
 } from "./geometry";
 
@@ -63,6 +63,7 @@ export default function FirstVertexBuffer() {
                 primitive: { topology: "triangle-list" },
             });
 
+            // 頂点バッファの作成
             const verticesBuffer = device.createBuffer({
                 size: quadVertexArray.byteLength,
                 usage: GPUBufferUsage.VERTEX,
@@ -73,6 +74,16 @@ export default function FirstVertexBuffer() {
                 quadVertexArray
             );
             verticesBuffer.unmap();
+
+            // インデックスバッファの作成
+            const indicesBuffer = device.createBuffer({
+                size: quadIndexArray.byteLength,
+                usage: GPUBufferUsage.INDEX,
+                mappedAtCreation: true,
+            });
+
+            new Uint16Array(indicesBuffer.getMappedRange()).set(quadIndexArray);
+            indicesBuffer.unmap();
 
             const frame = () => {
                 const commandEncoder = device.createCommandEncoder();
@@ -93,7 +104,9 @@ export default function FirstVertexBuffer() {
                     commandEncoder.beginRenderPass(renderPassDescriptor);
                 renderPassEncoder.setPipeline(pipeline);
                 renderPassEncoder.setVertexBuffer(0, verticesBuffer);
-                renderPassEncoder.draw(quadVertexCount, 1, 0, 0);
+                renderPassEncoder.setIndexBuffer(indicesBuffer, "uint16"); // インデックスバッファをセット
+                renderPassEncoder.drawIndexed(quadIndexArray.length);
+                // renderPassEncoder.draw(quadVertexCount, 1, 0, 0); // インデックス描画の場合はdraw()ではなくdrawIndexed()
                 renderPassEncoder.end();
 
                 device.queue.submit([commandEncoder.finish()]);
