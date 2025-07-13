@@ -244,7 +244,7 @@ export default function Texture() {
 
     return (
         <>
-            <h2>Uniform Buffer</h2>
+            <h2>Texture</h2>
             <canvas
                 id="webgpu-canvas"
                 ref={canvasRef}
