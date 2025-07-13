@@ -29,7 +29,7 @@ export default function UniformBuffer() {
             });
 
             const getTransformationMatrix = (uniformBuffer: GPUBuffer) => {
-                const projectionMatrix = glMatrix.mat4.create();
+                const projectionMatrix = glMatrix.mat4.create() as Float32Array;
                 glMatrix.mat4.perspective(
                     projectionMatrix,
                     (2 * Math.PI) / 5,
@@ -45,7 +45,7 @@ export default function UniformBuffer() {
                     projectionMatrix.byteLength
                 );
 
-                const viewMatrix = glMatrix.mat4.create();
+                const viewMatrix = glMatrix.mat4.create() as Float32Array;
                 glMatrix.mat4.translate(
                     viewMatrix,
                     viewMatrix,
@@ -59,7 +59,7 @@ export default function UniformBuffer() {
                     viewMatrix.byteLength
                 );
 
-                const worldMatrix = glMatrix.mat4.create();
+                const worldMatrix = glMatrix.mat4.create() as Float32Array;
                 const now = Date.now() / 1000;
                 glMatrix.mat4.rotate(
                     worldMatrix,
