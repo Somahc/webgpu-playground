@@ -8,7 +8,7 @@ import {
     quadVertexSize,
 } from "./geometry";
 
-export default function FirstVertexBuffer() {
+export default function FirstVertexAndIndexBuffer() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {

@@ -14,8 +14,8 @@ export default function Root() {
                         <Link to="/triangle">Triangle</Link>
                     </li>
                     <li>
-                        <Link to="/first_vertex_buffer">
-                            First Vertex Buffer
+                        <Link to="/first_vertex_and_index_buffer">
+                            First Vertex and Index Buffer
                         </Link>
                     </li>
                 </ul>

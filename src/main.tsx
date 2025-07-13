@@ -5,8 +5,7 @@ import "./index.css";
 import Root from "./routes/root";
 import Index from "./routes";
 import Triange from "./routes/triangle/triangle";
-import FirstVertexBuffer from "./routes/first_vertex_buffer/FirstVertexBuffer";
-
+import FirstVertexAndIndexBuffer from "./routes/first_vertex_and_index_buffer/FirstVertexBuffer";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -14,7 +13,10 @@ const router = createBrowserRouter([
         children: [
             { index: true, element: <Index /> },
             { path: "/triangle", element: <Triange /> },
-            { path: "/first_vertex_buffer", element: <FirstVertexBuffer /> },
+            {
+                path: "/first_vertex_and_index_buffer",
+                element: <FirstVertexAndIndexBuffer />,
+            },
         ],
     },
 ]);
