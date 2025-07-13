@@ -111,6 +111,18 @@ export default function UniformBuffer() {
                     targets: [{ format: presentationFormat }],
                 },
                 primitive: { topology: "triangle-list" },
+                depthStencil: {
+                    depthWriteEnabled: true,
+                    depthCompare: "less",
+                    format: "depth24plus",
+                },
+            });
+
+            // 深度バッファの作成
+            const depthTexture = device.createTexture({
+                size: [canvas.width, canvas.height],
+                format: "depth24plus",
+                usage: GPUTextureUsage.RENDER_ATTACHMENT,
             });
 
             // 頂点バッファの作成
@@ -157,6 +169,13 @@ export default function UniformBuffer() {
                             storeOp: "store",
                         },
                     ],
+                    depthStencilAttachment: {
+                        view: depthTexture.createView(),
+
+                        depthClearValue: 1.0,
+                        depthLoadOp: "clear",
+                        depthStoreOp: "store",
+                    },
                 };
 
                 getTransformationMatrix(uniformBuffer);
