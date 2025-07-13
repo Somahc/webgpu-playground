@@ -21,6 +21,9 @@ export default function Root() {
                     <li>
                         <Link to="/uniform_buffer">Uniform Buffer</Link>
                     </li>
+                    <li>
+                        <Link to="/texture">Texture</Link>
+                    </li>
                 </ul>
             </nav>
             <Outlet />

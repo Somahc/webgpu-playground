@@ -7,6 +7,7 @@ import Index from "./routes";
 import Triange from "./routes/triangle/triangle";
 import FirstVertexAndIndexBuffer from "./routes/first_vertex_and_index_buffer/FirstVertexBuffer";
 import UniformBuffer from "./routes/uniform_bufffer/UniformBuffer";
+import Texture from "./routes/texture/UniformBuffer";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
                 element: <FirstVertexAndIndexBuffer />,
             },
             { path: "/uniform_buffer", element: <UniformBuffer /> },
+            { path: "/texture", element: <Texture /> }, // Assuming UniformBuffer is used for texture as well
         ],
     },
 ]);
